@@ -1,0 +1,8 @@
+node_modules
+app
+chromedriver
+errorshots
+logs
+package-lock.json
+appium.log
+LICENSE

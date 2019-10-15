@@ -1,0 +1,63 @@
+{
+  "name": "NYAMobileAutomatedTesting",
+  "version": "1.0.0",
+  "description": "Neil Young's mobile automated tests with WebdriverIO, Cucumber Framework and Appium",
+  "scripts": {
+    "precommit": "lint-staged",
+    "test-ios": "wdio conf/tests.ios.conf.js",
+    "test-android": "wdio conf/tests.android.conf.js"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [
+    "webdriverio",
+    "browserstack",
+    "selenium",
+    "tests"
+  ],
+  "pre-commit": [
+    "precommit"
+  ],
+  "dependencies": {
+    "@babel/register": "^7.4.4",
+    "appium": "^1.13.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browserstack-local": "^1.3.7",
+    "chai": "^4.2.0",
+    "chance": "^1.0.18",
+    "dotenv": "^5.0.1",
+    "eslint": "^5.16.0",
+    "lint-staged": "^7.3.0",
+    "pre-commit": "^1.2.2",
+    "webdriverio": "^4.14.4"
+  },
+  "devDependencies": {
+    "appium-controller": "^1.1.6",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "node-fetch": "^2.6.0",
+    "request": "^2.88.0",
+    "wdio-appium-service": "^0.2.3",
+    "wdio-browserstack-service": "^0.1.18",
+    "wdio-cucumber-framework": "^2.2.8",
+    "wdio-spec-reporter": "^0.1.5"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

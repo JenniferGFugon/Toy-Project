@@ -1,0 +1,23 @@
+
+{
+    "presets": [
+        // "es2015",
+        ["env", {
+          "loose": true,
+          "modules": false,
+          "targets": {  
+            "node": 10
+        }
+        }],
+        "stage-2",
+      ], 
+    "plugins": [
+        [
+            "transform-decorators-legacy",
+            "transform-runtime",
+            {
+                "polyfill": true
+            }
+        ]
+    ]
+}
