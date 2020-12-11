@@ -1,6 +1,4 @@
-// let globalFunctions = require('../utils/GlobalFunc.js')
 let utils = require('../utils/utils.js')
-// const fetch = require('node-fetch')
 
 const SELECTORS = {
   ANDROID: {
@@ -20,7 +18,7 @@ class LoginPage {
   }
 
   LoginScreenAssertions() {
-    this.skip.waitForVisible(utils.waitForTimeout)
+    this.skip.waitForVisible()
     expect(this.signInCodeContainer.isExisting()).to.be.true
     if (browser.isAndroid) {
 

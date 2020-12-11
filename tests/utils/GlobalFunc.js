@@ -8,10 +8,6 @@ class GlobalFunc {
       return [key, browserContexts[key]]
     });
 
-    // console.log(result)
-    // console.log(result[0][1][1])
-    // browser.debug()
-
     let ContextEnum = {
       Native: result[0][1][0],
       Webview: result[0][1][1]
