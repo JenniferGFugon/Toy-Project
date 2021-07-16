@@ -7,23 +7,31 @@ const IosInfo = require('./ios.info.js');
 // For all capabilities please check
 // http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
 config.capabilities = [{
-  platformName: 'iOS',
+  // The defaults you need to have in your config
   browserName: 'safari',
+  platformName: 'iOS',
   maxInstances: 1,
-  automationName: 'XCUITest',
-  deviceName: IosInfo.deviceName(),
-  platformVersion: IosInfo.platFormVersion(),
-  udid: '00008020-000605E62612002E',
+  // For W3C the appium capabilities need to have an extension prefix
+  // This is `appium:` for all Appium Capabilities which can be found here
+  // http://appium.io/docs/en/writing-running-appium/caps/
+  'appium:deviceName': 'iPhone 11 Pro Max',
+  'appium:platformVersion': '13.2.2',
+  'appium:udid': 'B624ABAA-7830-48FA-AC12-1126EAFDA4A0',
+  'appium:orientation': 'PORTRAIT',
+  'appium:automationName': 'XCUITest',
+  'appium:newCommandTimeout': 240,
+  'appium:wdaLaunchTimeout': 999999,
+  'appium:wdaConnectionTimeout': 999999,
 
   // The following capabilities are needed to run tests on physical devices. Request them to your Dev Team
-  xcodeOrgId: 'YD5FNB475F',
-  xcodeSigningId: 'iPhone Developer',
-  //
-  startIWDP: true, // For the ios webkit debug real devices
-  noReset: false,
-  wdaLaunchTimeout: 999999,
-  wdaConnectionTimeout: 999999
+  // xcodeOrgId: 'YD5FNB475F',
+  // xcodeSigningId: 'iPhone Developer',
+  // //
+  // startIWDP: true, // For the ios webkit debug real devices
+  // noReset: false,
+  // wdaLaunchTimeout: 999999,
+  // wdaConnectionTimeout: 999999,
 }];
-config.cucumberOpts.tagExpression = '@iosBrowser';// pass tag to run tests specific to ios
+config.cucumberOpts.tagExpression = '@iosBrowser'; // pass tag to run tests specific to ios
 
 exports.config = config

@@ -9,16 +9,22 @@ const AndroidInfo = require('./android.info.js');
 // http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
 config.capabilities = [
   {
-    automationName: 'uiautomator2',
-    platformName: 'Android',//Which mobile OS platform to use
-    platformVersion: AndroidInfo.platFormVersion(),
-    deviceName: AndroidInfo.deviceName(),
+    // The defaults you need to have in your config
+    platformName: 'Android',
     browserName: 'chrome',
     maxInstances: 1,
-    noReset: false,
+    // For W3C the appium capabilities need to have an extension prefix
+    // http://appium.io/docs/en/writing-running-appium/caps/
+    // This is `appium:` for all Appium Capabilities which can be found here
+    'appium:deviceName': 'Pixel_3_10.0',
+    'appium:platformVersion': '10.0',
+    'appium:orientation': 'PORTRAIT',
+    // 'appium:newCommandTimeout': 240,
+
     //To automate webview in the app this is necessary
     //https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/web/chromedriver.md
-    chromedriverExecutableDir: config.rootPath + '/chromedriver',
+    //https://sites.google.com/chromium.org/driver/
+    // 'appium:chromedriverExecutableDir': config.rootPath + '/chromedriver',
   }
 ];
 config.cucumberOpts.tagExpression = '@androidBrowser'; // pass tag to run tests specific to android

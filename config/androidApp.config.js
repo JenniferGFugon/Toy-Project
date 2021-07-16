@@ -1,5 +1,5 @@
 
-const config = require('./base.conf.js').config;
+const config = require('./wdio.conf.js').config;
 const AndroidInfo = require('./android.info.js');
 
 // ====================
@@ -9,20 +9,30 @@ const AndroidInfo = require('./android.info.js');
 // http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
 config.capabilities = [
   {
-    automationName: 'uiautomator2',
-    platformName: 'Android',//Which mobile OS platform to use
-    platformVersion: AndroidInfo.platFormVersion(),
-    deviceName: AndroidInfo.deviceName(),
-    app: config.paths.android,
+    // The defaults you need to have in your config
+    platformName: 'Android',
     maxInstances: 1,
-    noSign: true,
-    autoGrantPermissions: true,
-    noReset: false,
+    // For W3C the appium capabilities need to have an extension prefix
+    // http://appium.io/docs/en/writing-running-appium/caps/
+    // This is `appium:` for all Appium Capabilities which can be found here
+    'appium:deviceName': 'Pixel_3_10.0',
+    'appium:platformVersion': '10.0',
+    'appium:orientation': 'PORTRAIT',
+    'appium:automationName': 'UiAutomator2',
+    // The path to the app
+    // 'appium:app': join(process.cwd(), './app/app.apk'),
+    'appium:app': config.paths.android,
+    // 'appium:appWaitActivity': 'com.wdiodemoapp.MainActivity',
+    // Read the reset strategies very well, they differ per platform, see
+    // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
+    'appium:noReset': false,
+    'appium:noSign': true,
+    'appium:autoGrantPermissions': true,
+    // 'appium:newCommandTimeout': 240,
+
     //To automate webview in the app this is necessary
     //https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/web/chromedriver.md
-    // chromedriverExecutableDir: config.rootPath + '/chromedriver',//For Real device
-    // chromedriverExecutable: '/Users/walternolasco/Documents/FreeformMobileJavascript/chromedriver/chromedriver_2.38'//For Real device
-    //  chromeOptions: {androidPackage: 'com.android.chrome'}
+    // chromedriverExecutableDir: config.rootPath + '/chromedriver',
   }
 ];
 config.cucumberOpts.tagExpression = '@androidApp'; // pass tag to run tests specific to android

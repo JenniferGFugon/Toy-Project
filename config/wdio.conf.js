@@ -1,8 +1,8 @@
-// let appiumController = require('appium-controller')
+
 const defaultTimeoutInterval = process.env.DEBUG ? (24 * 60 * 60 * 1000) : 60000
 
 const apps = {
-  android: 'app.apk',
+  android: 'CelsiusFahrenheitConverter_v1.0.1_apkpure.com.apk',
   ios: 'PROD6.8.2.ipa'
 }
 
@@ -33,32 +33,68 @@ exports.config = {
   maxInstancesPerCapability: 1,
   reporters: ['spec'],
   waitforTimeout: defaultTimeoutInterval,
-  // services: ['appium'],
-  // appium: {
-  //   command: 'appium',
-  //   args: {},
-  // },
+  services: [
+    ['appium',
+      {
+        // This will use the globally installed version of Appium
+        command: 'appium',
+        args: {
+          // This is needed to tell Appium that we can execute local ADB commands
+          // and to automatically download the latest version of ChromeDriver
+          relaxedSecurity: true,
+        },
+      },
+    ],
+  ],
   host: '127.0.0.1',
   port: 4723,
-  path: '/wd/hub',
+  path: '/wd/hub/',
+  baseUrl: 'http://the-internet.herokuapp.com',
 
   framework: 'cucumber',
   cucumberOpts: {
-    require: ['./tests/stepDefinitions/*.js'], // <string[]> (file/dir) require files before executing features
-    backtrace: false, // <boolean> show full backtrace for errors
-    requireModule: ['@babel/register'], // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
-    dryRun: false, // <boolean> invoke formatters without executing steps
-    failFast: true, // <boolean> abort the run on first failure
-    format: ['pretty'], // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
-    colors: true, // <boolean> disable colors in formatter output
-    snippets: true, // <boolean> hide step definition snippets for pending steps
-    source: true, // <boolean> hide source uris
-    profile: [], // <string[]> (name) specify the profile to use
-    strict: false, // <boolean> fail if there are any undefined or pending steps
-    tagExpression: 'not @Pending', // <string> (expression) only execute the features or scenarios with tags matching the expression
-    timeout: defaultTimeoutInterval, // <number> timeout for step definitions
-    ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
-    scenarioLevelReporter: false // Enable this to make webdriver.io behave as if scenarios and not steps were the tests.
+    require: ['./tests/stepDefinitions/*.js'],
+
+    // <boolean> show full backtrace for errors
+    backtrace: false,
+
+    requireModule: [],
+
+    // <boolean> invoke formatters without executing steps
+    dryRun: false,
+
+    // <boolean> abort the run on first failure
+    failFast: true,
+
+    // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
+    format: ['pretty'],
+
+    // <boolean> disable colors in formatter output
+    colors: true,
+
+    // <boolean> hide step definition snippets for pending steps
+    snippets: true,
+
+    // <boolean> hide source uris
+    source: true,
+
+    // <string[]> (name) specify the profile to use
+    profile: [],
+
+    // <boolean> fail if there are any undefined or pending steps
+    strict: false,
+
+    // <string> (expression) only execute the features or scenarios with tags matching the expression
+    tagExpression: 'not @Pending',
+
+    // <number> timeout for step definitions
+    timeout: defaultTimeoutInterval,
+
+    // <boolean> Enable this config to treat undefined definitions as warnings.
+    ignoreUndefinedDefinitions: false,
+
+    // Enable this to make webdriver.io behave as if scenarios and not steps were the tests.
+    scenarioLevelReporter: false
   },
 
   // =====
