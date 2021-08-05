@@ -1,6 +1,4 @@
 const config = require('./wdio.conf.js').config
-const IosInfo = require('./ios.info.js');
-
 // ====================
 // Capabilities IOS
 // ====================
@@ -15,8 +13,8 @@ config.capabilities = [{
   // This is `appium:` for all Appium Capabilities which can be found here
   // http://appium.io/docs/en/writing-running-appium/caps/
   'appium:deviceName': 'iPhone 11 Pro Max',
-  'appium:platformVersion': '13.2.2',
-  'appium:udid': 'B624ABAA-7830-48FA-AC12-1126EAFDA4A0',
+  'appium:platformVersion': '14.5',
+  'appium:udid': '586EFE98-9998-4BFA-AC75-BABF034D06BB',
   'appium:orientation': 'PORTRAIT',
   'appium:automationName': 'XCUITest',
   'appium:newCommandTimeout': 240,

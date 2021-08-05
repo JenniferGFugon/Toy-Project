@@ -1,6 +1,6 @@
 
 const config = require('./wdio.conf.js').config;
-const AndroidInfo = require('./android.info.js');
+//const AndroidInfo = require('./android.info.js');
 
 // ====================
 // Capabilities Android

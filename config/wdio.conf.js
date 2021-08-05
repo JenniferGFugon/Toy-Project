@@ -28,7 +28,7 @@ exports.config = {
     './tests/features/sampleTest.feature'
   ],
 
-  logLevel: 'error',
+  logLevel: 'debug',
   maxInstances: 5,
   maxInstancesPerCapability: 1,
   reporters: ['spec'],
