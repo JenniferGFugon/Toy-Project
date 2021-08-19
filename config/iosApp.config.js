@@ -1,5 +1,4 @@
 const config = require('./wdio.conf.js').config
-const IosInfo = require('./ios.info.js');
 
 // ====================
 // Capabilities IOS
@@ -14,9 +13,9 @@ config.capabilities = [{
   // For W3C the appium capabilities need to have an extension prefix
   // This is `appium:` for all Appium Capabilities which can be found here
   // http://appium.io/docs/en/writing-running-appium/caps/
-  'appium:deviceName': 'iPhone 11 Pro Max',
-  'appium:platformVersion': '13.2.2',
-  'appium:udid': 'B624ABAA-7830-48FA-AC12-1126EAFDA4A0',
+  'appium:deviceName': 'iPhone 12 Pro',
+  'appium:platformVersion': '14.5',
+  'appium:udid': '43317A3D-FE89-448E-B742-14D46A052405',
   'appium:orientation': 'PORTRAIT',
   'appium:automationName': 'XCUITest',
   // The path to the app
