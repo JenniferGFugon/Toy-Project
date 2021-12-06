@@ -13,12 +13,12 @@ class SettingsPage {
         return $(SELECTORS[utils.platformName].general)
     }
 
-    launchApp() {
-        browser.pause(2000)
+    async launchApp() {
+        await browser.pause(2000)
     }
 
-    verifyGeneralLabel() {
-        this.General.getText().should.equal('General');
+    async verifyGeneralLabel() {
+        await (await this.General).getText().should.equal('General');
     }
 }
 

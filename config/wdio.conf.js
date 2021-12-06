@@ -32,7 +32,7 @@ exports.config = {
   maxInstances: 5,
   maxInstancesPerCapability: 1,
   reporters: ['spec'],
-  waitforTimeout: defaultTimeoutInterval,
+  waitforTimeout: 60000,
   services: [
     ['appium',
       {
@@ -47,7 +47,7 @@ exports.config = {
     ],
   ],
   host: '127.0.0.1',
-  port: 4723,
+  port: 4726,
   path: '/wd/hub/',
   baseUrl: 'http://the-internet.herokuapp.com',
 

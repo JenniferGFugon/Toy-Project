@@ -13,16 +13,16 @@ const SettingsPage = require('./../pages/settings.page');
 const settingsPage = new SettingsPage();
 
 // @androidApp
-Then(/^I should see fahrenheit of (.*)$/, (fahrenheit) => {
-    celsiusToFahrenheitConvertorPage.verifyFahrenheitValue(fahrenheit);
+Then(/^I should see fahrenheit of (.*)$/, async (fahrenheit) => {
+    await celsiusToFahrenheitConvertorPage.verifyFahrenheitValue(fahrenheit);
 });
 
 // @androidBrowser @iosBrowser
-Then(/^I verify the title to be (.*)$/, (title) => {
-    googlePage.verifyTitle(title);
+Then(/^I verify the title to be (.*)$/, async (title) => {
+    await googlePage.verifyTitle(title);
 });
 
 // @iosApp
-Then(/^I should see the general label$/, () => {
-    settingsPage.verifyGeneralLabel();
+Then(/^I should see the general label$/, async () => {
+    await settingsPage.verifyGeneralLabel();
 });

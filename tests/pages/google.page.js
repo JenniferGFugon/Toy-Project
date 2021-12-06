@@ -13,8 +13,8 @@ class GooglePage {
         browser.pause(2000)
     }
 
-    verifyTitle(expectedTitle) {
-        expect(browser.getTitle()).to.equal(expectedTitle);
+    async verifyTitle(expectedTitle) {
+        await expect(browser.getTitle()).to.equal(expectedTitle);
     }
 }
 

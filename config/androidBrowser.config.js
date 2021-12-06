@@ -19,7 +19,7 @@ config.capabilities = [
     'appium:platformVersion': '11.0',
     'appium:orientation': 'PORTRAIT',
     'appium:automationName': 'UiAutomator2',
-    'appium:udid': 'emulator-5554',
+    //'appium:udid': 'emulator-5554',
 
     // 'appium:newCommandTimeout': 240,
 

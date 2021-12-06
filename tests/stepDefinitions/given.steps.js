@@ -18,11 +18,11 @@ Given(/^I launch the google$/, () => {
 });
 
 // @androidApp
-Given(/^I launch the app$/, () => {
-    celsiusToFahrenheitConvertorPage.launchApp();
+Given(/^I launch the app$/, async () => {
+    await celsiusToFahrenheitConvertorPage.launchApp();
 });
 
 // @iosApp
-Given(/^I launch the settings app of iphone$/, () => {
-    settingsPage.launchApp();
+Given(/^I launch the settings app of iphone$/, async () => {
+    await settingsPage.launchApp();
 });

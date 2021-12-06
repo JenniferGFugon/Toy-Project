@@ -33,28 +33,28 @@ class CelsiusToFahrenhietConvertorPage {
         return $(SELECTORS[utils.platformName].okButton)
     }
 
-    dismissAppRatingIfPresent() {
-        if (this.rateAppMessage.isDisplayed()) {
-            this.okButton.click()
+    async dismissAppRatingIfPresent() {
+        if (await (await this.rateAppMessage).isDisplayed()) {
+            await (await this.okButton).click()
         }
     }
 
-    launchApp() {
-        browser.pause(2000)
+    async launchApp() {
+        await browser.pause(2000)
     }
 
-    enterCelsius(celsiusValue) {
-        this.dismissAppRatingIfPresent();
-        this.celsiusTextField.waitForDisplayed()
-        this.celsiusTextField.clearValue()
-        this.celsiusTextField.addValue(celsiusValue)
-        this.submitButton.click()
+    async enterCelsius(celsiusValue) {
+        await this.dismissAppRatingIfPresent();
+        await (await this.celsiusTextField).waitForDisplayed()
+        await (await this.celsiusTextField).clearValue()
+        await (await this.celsiusTextField).addValue(celsiusValue)
+        await (await this.submitButton).click()
     }
 
-    verifyFahrenheitValue(fahrenheitValue) {
-        this.fahrenheitTextField.waitForDisplayed()
-        this.fahrenheitTextField.getText().should.equal(fahrenheitValue);
-        browser.pause(2000)
+    async verifyFahrenheitValue(fahrenheitValue) {
+        await (await this.fahrenheitTextField).waitForDisplayed()
+        await (await this.fahrenheitTextField).getText().should.equal(fahrenheitValue);
+        await browser.pause(2000)
     }
 }
 

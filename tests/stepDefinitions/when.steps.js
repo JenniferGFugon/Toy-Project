@@ -5,6 +5,6 @@ const CelsiusToFahrenheitConvertorPage = require('./../pages/celsiusToFahrenheit
 const celsiusToFahrenheitConvertorPage = new CelsiusToFahrenheitConvertorPage();
 
 // @androidApp
-When(/^I enter celsius of (.*)$/, (celsius) => {
-    celsiusToFahrenheitConvertorPage.enterCelsius(celsius);
+When(/^I enter celsius of (.*)$/, async (celsius) => {
+    await celsiusToFahrenheitConvertorPage.enterCelsius(celsius);
 });
