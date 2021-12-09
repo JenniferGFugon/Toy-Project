@@ -4,8 +4,8 @@ Boilerplate project to run native and browser for android and ios using cucumber
 
 ## Based on
 
-- WebdriverIO v6
-- cucumber v6
+- WebdriverIO v7
+- cucumber v7
 - Node version 10.16 or higher
 - Appium
 
@@ -27,14 +27,32 @@ Click below to know more
 Follow the below commands: -
 
 - Install dependencies using `npm i` in the terminal.
+- Install appium globally on your PC: `npm install -g appium`
+- Export Android and Java environment variables
+
+```bash
+export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=/Users/YOUR_USER/Library/Android/sdk
+export ANDROID_SDK_ROOT=/Users/YOUR_USER/Library/Android/sdk
+export ANDROID_AVD_HOME=/Users/YOUR_USER/.android/avd
+export HTTP_PROXY=myserver:1981
+export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
+
+```
+
+- Save your exports
+
+```bash
+source ~/.zshrc
+```
 
 - Update the deviceName and platFormVersion in `config/android.info.js` and `config/ios.info.js` respectively.
 
-- Execute `npm run ios` to run ios native app
+- Execute `npm run iosApp` to run ios native app
 
 - Execute `npm run iosBrowser` to run ios safari browser
 
-- Execute `npm run android` to run android native app
+- Execute `npm run androidApp` to run android native app
 
 - Execute `npm run androidBrowser` to run android chrome browser
 
