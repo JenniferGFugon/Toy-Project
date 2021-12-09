@@ -4,10 +4,10 @@ Boilerplate project to run native and browser for android and ios using cucumber
 
 ## Based on
 
-- [WebdriverIO v7] (https://webdriver.io/docs/gettingstarted)
-- [Cucumber v7] (https://cucumber.io/docs/cucumber/)
+- [WebdriverIO v7](https://webdriver.io/docs/gettingstarted)
+- [Cucumber v7](https://cucumber.io/docs/cucumber/)
 - Node version 10.16 or higher
-- [Appium] (https://appium.io/docs/en/about-appium/intro/)
+- [Appium](https://appium.io/docs/en/about-appium/intro/)
 
 ## Supports
 - Native Android and iOS apps
