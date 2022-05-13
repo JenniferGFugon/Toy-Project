@@ -14,7 +14,7 @@ class GooglePage {
     }
 
     async verifyTitle(expectedTitle) {
-        await expect(browser.getTitle()).to.equal(expectedTitle);
+        await expect(await browser.getTitle()).to.equal(expectedTitle);
     }
 }
 
