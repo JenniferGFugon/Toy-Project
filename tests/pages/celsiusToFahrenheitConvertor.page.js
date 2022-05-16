@@ -53,7 +53,7 @@ class CelsiusToFahrenhietConvertorPage {
 
     async verifyFahrenheitValue(fahrenheitValue) {
         await (await this.fahrenheitTextField).waitForDisplayed()
-        await (await this.fahrenheitTextField).getText().should.equal(fahrenheitValue);
+        await (await this.fahrenheitTextField.getText()).should.equal(fahrenheitValue);
         await browser.pause(2000)
     }
 }
