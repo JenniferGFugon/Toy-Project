@@ -14,13 +14,13 @@ config.capabilities = [
     // For W3C the appium capabilities need to have an extension prefix
     // http://appium.io/docs/en/writing-running-appium/caps/
     // This is `appium:` for all Appium Capabilities which can be found here
-    'appium:deviceName': 'Pixel 4 XL API 28',
+    'appium:deviceName': 'Pixel XL',
     'appium:platformVersion': '9.0',
     'appium:orientation': 'PORTRAIT',
     'appium:automationName': 'UiAutomator2',
     // The path to the app
     // 'appium:app': join(process.cwd(), './app/app.apk'),
-    'appium:app': config.paths.android,
+    'appium:app': '/Users/video/OneDrive/Documents/Helloiconic/Toy Project/app/nya-qa-release.apk',
     // 'appium:appWaitActivity': 'com.wdiodemoapp.MainActivity',
     // Read the reset strategies very well, they differ per platform, see
     // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/

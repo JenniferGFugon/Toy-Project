@@ -4,25 +4,28 @@ const GooglePage = require('./../pages/google.page');
 
 const googlePage = new GooglePage();
 
-const CelsiusToFahrenheitConvertorPage = require('./../pages/celsiusToFahrenheitConvertor.page');
+const LoginPage = require('./../pages/login.page');
 
-const celsiusToFahrenheitConvertorPage = new CelsiusToFahrenheitConvertorPage();
+const loginPage = new LoginPage();
+const SignoutPage = require('./../pages/signup.page');
+const signoutPage = new SignoutPage();
 
 const SettingsPage = require('./../pages/settings.page');
 
 const settingsPage = new SettingsPage();
 
 // @androidApp
-Then(/^I should see fahrenheit of (.*)$/, async (fahrenheit) => {
-    await celsiusToFahrenheitConvertorPage.verifyFahrenheitValue(fahrenheit);
+Then('the user should see the logo of the app', async () => {
+    await loginPage.selectNoOption();
+    await loginPage.verifyAppTittle();
 });
 
-// @androidBrowser @iosBrowser
-Then(/^I verify the title to be (.*)$/, async (title) => {
-    await googlePage.verifyTitle(title);
+Then('the user should see the error message {string}', async (message) => {
+    await loginPage.errorMessage(message);
 });
 
-// @iosApp
-Then(/^I should see the general label$/, async () => {
-    await settingsPage.verifyGeneralLabel();
+Then('the user should see the invalid email error message {string}', async (errorMessage) => {
+    await signoutPage.errorMessage(errorMessage);
 });
+
+

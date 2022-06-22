@@ -4,25 +4,27 @@ const GooglePage = require('./../pages/google.page');
 
 const googlePage = new GooglePage();
 
-const CelsiusToFahrenheitConvertorPage = require('./../pages/celsiusToFahrenheitConvertor.page');
+const LoginPage = require('./../pages/login.page');
 
-const celsiusToFahrenheitConvertorPage = new CelsiusToFahrenheitConvertorPage();
+const loginPage = new LoginPage();
+const SignUpPage = require('./../pages/signup.page');
 
+const signUpPage = new SignUpPage();
 const SettingsPage = require('./../pages/settings.page');
 
 const settingsPage = new SettingsPage();
 
-// @androidBrowser @iosBrowser
 Given(/^I launch the google$/, () => {
     googlePage.launchGoogle('https://www.google.hn/');
 });
 
 // @androidApp
 Given(/^I launch the app$/, async () => {
-    await celsiusToFahrenheitConvertorPage.launchApp();
+    await loginPage.launchApp();
+});
+Given(/^I launch NYA app$/, async () => {
+    await loginPage.launchApp();
+    await signUpPage.changeTab();
+
 });
 
-// @iosApp
-Given(/^I launch the settings app of iphone$/, async () => {
-    await settingsPage.launchApp();
-});

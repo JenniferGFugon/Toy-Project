@@ -2,30 +2,25 @@
 const defaultTimeoutInterval = process.env.DEBUG ? (24 * 60 * 60 * 1000) : 60000
 
 const apps = {
-  android: 'CelsiusFahrenheitConverter_v1.0.1_apkpure.com.apk',
-  ios: 'PROD6.8.2.ipa'
+  android: 'nya-qa-release.apk',
 }
 
-let _path = __dirname.split('/')
-_path.pop()
 
-const _rootPath = _path.join('/')
 
 exports.config = {
 
   runner: 'local',
 
-  rootPath: _rootPath,
+   
   paths: {
-    android: _rootPath + '/app/' + apps.android,
-    ios: _rootPath + '/app/ ' + apps.ios
+    android: '/Users/video/OneDrive/Documents/Helloiconic/qa-mobile-automation-template' + '/app/' + apps.android,
   },
   apps: apps,
 
   // Runner and framework Configuration
 
   specs: [
-    './tests/features/sampleTest.feature'
+    './tests/features/login.feature'
   ],
 
   logLevel: 'debug',
@@ -47,7 +42,7 @@ exports.config = {
     ],
   ],
   host: '127.0.0.1',
-  port: 4726,
+  port: 4723,
   path: '/wd/hub/',
   baseUrl: 'http://the-internet.herokuapp.com',
 
