@@ -2,7 +2,7 @@ let utils = require('../utils/utils.js')
 require('chai').should();
 
 
-class SignOutPage {
+class SignUpPage {
 
     get signUpTab()  {
         return  $('//androidx.appcompat.app.ActionBar.Tab[@content-desc="Sign Up"]/android.widget.RelativeLayout')
@@ -16,26 +16,50 @@ class SignOutPage {
     get firstNameTextField()  {
         return  $('//android.widget.EditText[@text="First name"]')
     }
-    get signUpButton()  {
-        return  $('//android.widget.LinearLayout[@resource-id="com.shakey.nyarchives.qa:id/com_auth0_lock_labeled"]')
-    }
     get invalidEmailErrorMessage()  {
         return  $('//android.widget.TextView[@text="Invalid Email Address"]')
     }
-    
-    get submitButton() {
+    get signupButton() {
         return $('//android.widget.LinearLayout[@resource-id="com.shakey.nyarchives.qa:id/com_auth0_lock_labeled"]')
     }
+    get radiobuttonOptionNo() {
+        return $('//android.widget.RadioButton[@resource-id="com.shakey.nyarchives.qa:id/no_button"]')
+    }
+    get submitNotificationsButton() {
+        return $('//android.widget.Button[@resource-id="com.shakey.nyarchives.qa:id/submit_button"]')
+    }
+    get sideMenu()  {
+        return  $('//android.widget.ImageButton[@index="0"]')
+    }
+    get configOption()  {
+        return  $('//androidx.appcompat.widget.LinearLayoutCompat[@index="12"]')
+    }
+    get accountOption()  {
+        return  $('//android.widget.RelativeLayout[@index="1"]')
+    }
+    get accountUsername()  {
+        return  $('//android.widget.TextView[@resource-id="com.shakey.nyarchives.qa:id/username_label"]')
+    }
+    get accountReturnbutton()  {
+        return  $('//android.widget.ImageButton[@index="0"]')
+    }
+    get accountMenubutton()  {
+        return  $('//android.widget.ImageButton[@index="0"]')
+    }
+    get homeOption()  {
+        return  $('//androidx.appcompat.widget.LinearLayoutCompat[@index="1"]')
+    }
+    get facebookLogo()  {
+        return  $('//android.widget.RelativeLayout[@index="0"]')
+    }
+    get googleLogo()  {
+        return  $('//android.widget.RelativeLayout[@index="1"]')
+    }
     
 
-    async dismissAppRatingIfPresent() {
-        if (await (await this.rateAppMessage).isDisplayed()) {
-            await (await this.okButton).click()
-        }
-    }
-
-    async launchApp() {
+    async waitForAppLaunch() {
         await browser.pause(2000)
+        await this.verifyAppIsOpen();
     }
 
     
@@ -54,26 +78,61 @@ class SignOutPage {
         await (await this.firstNameTextField).clearValue()
         await (await this.firstNameTextField).addValue(firstName)
     }
-    async signup() {
-        await (await this.submitButton).waitForDisplayed()
-        await (await this.submitButton.click());
+    async signupIntoApp() {
+        await (await this.signupButton).waitForDisplayed()
+        await (await this.signupButton.click());
         await browser.pause(2000)
     }
-    async verifyAppTittle() {
-        await (await this.tittleApp).waitForDisplayed()
-        await (await this.tittleApp.isDisplayed()).should.equal(true);
+    async selectNoOption() {
+        await (await this.radiobuttonOptionNo).waitForDisplayed()
+        await (await this.radiobuttonOptionNo.click());
+        await (await this.submitNotificationsButton).waitForDisplayed()
+        await (await this.submitNotificationsButton.click());
         await browser.pause(2000)
     }
-    async errorMessage(message) {
+    async emailErrorMessage(message) {
         await (await this.invalidEmailErrorMessage).waitForDisplayed()
         await (await this.invalidEmailErrorMessage.getText()).should.equal(message);
     }
-    async changeTab() {
+    async changeToRegisterTab() {
         await (await this.signUpTab).waitForDisplayed()
         await (await this.signUpTab).click();
     }
-    
+    async openMenu() {
+        await (await this.sideMenu).waitForDisplayed()
+        await this.sideMenu.click();
+    }
+    async selectConfigOption() {
+        await (await this.configOption).waitForDisplayed()
+        await this.configOption.click();
+    }
+    async selectAccountOption() {
+        await (await this.accountOption).waitForDisplayed()
+        await this.accountOption.click();
+    }
+    async compareUsername(username) {
+        await this.openMenu()
+        await this.selectConfigOption()
+        await this.selectAccountOption()
+        await (await this.accountUsername).waitForDisplayed()
+        await (await this.accountUsername.getText()).should.equal(username);
+    }
+    async returnToMenu() {
+        await this.accountReturnbutton.waitForDisplayed()
+        await this.accountReturnbutton.click()
+        await this.accountMenubutton.waitForDisplayed()
+        await this.accountMenubutton.click()
+        await this.homeOption.waitForDisplayed()
+        await this.homeOption.click()
+        
+    }
 
+    async verifyAppIsOpen() {
+        await this.facebookLogo.waitForDisplayed()
+        await (await this.facebookLogo.isDisplayed()).should.equal(true);
+        await this.googleLogo.waitForDisplayed()
+        await (await this.googleLogo.isDisplayed()).should.equal(true);
+    }
 }
 
-module.exports = SignOutPage;
+module.exports = SignUpPage;

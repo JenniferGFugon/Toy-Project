@@ -14,17 +14,15 @@ const SettingsPage = require('./../pages/settings.page');
 
 const settingsPage = new SettingsPage();
 
-Given(/^I launch the google$/, () => {
-    googlePage.launchGoogle('https://www.google.hn/');
-});
+
 
 // @androidApp
-Given(/^I launch the app$/, async () => {
-    await loginPage.launchApp();
+Given('the user is on login screen', async () => {
+    await loginPage.waitForAppLaunch();
 });
-Given(/^I launch NYA app$/, async () => {
-    await loginPage.launchApp();
-    await signUpPage.changeTab();
+Given('the user is on the registration screen', async () => {
+    await signUpPage.waitForAppLaunch();
+    await signUpPage.changeToRegisterTab();
 
 });
 

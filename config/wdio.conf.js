@@ -20,7 +20,7 @@ exports.config = {
   // Runner and framework Configuration
 
   specs: [
-    './tests/features/login.feature'
+    './tests/features/*.feature'
   ],
 
   logLevel: 'debug',
